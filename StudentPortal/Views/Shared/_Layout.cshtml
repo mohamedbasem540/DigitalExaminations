@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>@ViewData["Title"] | Digital Examinations</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/assets/css/bootstrap.min.css">
+
+    <!-- External Css -->
+    <link rel="stylesheet" href="~/assets/css/line-awesome.min.css">
+
+    <!-- Custom Css -->
+    <link rel="stylesheet" type="text/css" href="~/assets/css/main.css" asp-append-version="true">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/theme-4.css" asp-append-version="true">
+    @if (ViewBag.Exam == true)
+    {
+        <link rel="stylesheet" type="text/css" href="~/assets/css/covid.css" asp-append-version="true">
+    }
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" href="~/assets/images/favicon.png">
+    <link rel="apple-touch-icon" href="~/assets/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="~/assets/images/icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="~/assets/images/icon-114x114.png">
+
+    <!-- Loader -->
+    <link rel="stylesheet" type="text/css" href="~/assets/css/loader.css" asp-append-version="true" />
+    
+    <!-- Custom Css -->
+    <style>
+        .swal2-show {
+            font-size: 15px;
+        }
+    </style>
+    
+    @await RenderSectionAsync("Styles", required: false)
+
+</head>
+<body>
+    <div id="cover-spin">
+        <img class="loading-image" src="~/assets/images/logo-dark.png" alt="loading..">
+    </div>
+
+    @if (ViewBag.Exam == true)
+    {
+        <div class="ugf-covid @(ViewBag.Removebg == true?"":" covid-bg")">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col">
+                        <nav class="navbar navbar-expand-md anfra-nav">
+                            <a class="navbar-brand" asp-action="Index" asp-controller="Exam">
+                                <img src="~/assets/images/logo-dark.png" alt="">
+                            </a>
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                                    aria-label="Toggle navigation">
+                                <i class="las la-bars"></i>
+                            </button>
+
+                            <div class="collapse navbar-collapse justify-end" id="navbarSupportedContent">
+                                <ul class="navbar-nav ml-auto">
+                                    <li class="nav-item">
+                                        <a class="nav-link" asp-controller="Authorization" asp-action="EditProfile">Update Profile</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" asp-controller="Authorization" asp-action="ChangePassword">Change Password</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" asp-controller="Authorization" asp-action="Logout">Logout !</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+
+                @RenderBody()
+
+                <div class="row">
+                    <div class="col">
+                        <div class="footer">
+                            <div class="footer-social">
+                                <a href="#"><i class="lab la-facebook-f"></i></a>
+                                <a href="#"><i class="lab la-twitter"></i></a>
+                                <a href="#"><i class="lab la-linkedin-in"></i></a>
+                                <a href="#"><i class="lab la-youtube"></i></a>
+                                <a href="#"><i class="lab la-instagram"></i></a>
+                            </div>
+                            <div class="copyright-text">
+                                <p>Copyright © @DateTime.UtcNow.Year Digital Examinations, All rights reserved</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    }
+    else
+    {
+        <div class="ugf-block ugf-bg ugf-bg-1">
+            <div class="ugf-logo">
+                <a asp-action="Index" asp-controller="Exam">
+                    <img src="~/assets/images/logo-dark.png" class="img-fluid" alt="">
+                </a>
+            </div>
+            @RenderBody()
+            
+        </div>
+    }
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="~/assets/js/jquery.min.js"></script>
+    <script src="~/assets/js/popper.min.js"></script>
+    <script src="~/assets/js/bootstrap.min.js"></script>
+    <script src="~/assets/js/sweetalert2.all.min.js"></script>
+
+    <script src="~/assets/js/custom.js" asp-append-version="true"></script>
+
+    <script>
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+          }
+        });
+    </script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

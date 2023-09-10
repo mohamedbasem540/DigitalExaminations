@@ -1,0 +1,15 @@
+﻿global using AutoMapper;
+global using BaseDB;
+global using Contracts.Constants;
+global using Contracts.CoreServices;
+global using Contracts.Repository;
+global using Contracts.Utility;
+global using CoreServices;
+global using DAL;
+global using Entities.ResponseFeatures;
+global using Microsoft.AspNetCore.Mvc;
+global using Microsoft.EntityFrameworkCore;
+global using Newtonsoft.Json.Converters;
+global using Repository;
+global using StudentPortal.ActionFilters;
+global using StudentPortal.Utility;

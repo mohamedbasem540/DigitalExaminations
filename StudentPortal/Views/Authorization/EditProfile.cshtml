@@ -1,0 +1,76 @@
+﻿@model Entities.CoreServicesModels.StudentModels.StudentEditModel
+@{
+    ViewData["Title"] = "Update Profile";
+}tid
+<div class="form-block">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-8 p-sm-0">
+                <div class="ugf-form-block-header">
+                    <h1>Update Profile</h1>
+                </div>
+                <div class="ugf-input-block">
+                    <form asp-action="EditProfile">
+                        <div asp-validation-summary="All" class="text-danger">@ViewData["error"]</div>
+
+                        <div class="row form-group">
+                            <div class="col-md-6 col-6">
+                                <label asp-for="FirstName" class="form-label">
+                                    <i class="las la-user"></i>
+                                </label>
+                                <input class="form-control" asp-for="FirstName" placeholder="First Name">
+                            </div>
+                            <div class="col-md-6 col-6">
+                                <label asp-for="LastName" class="form-label">
+                                    <i class="las la-user"></i>
+                                </label>
+                                <input class="form-control" asp-for="LastName" placeholder="Last Name">
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <div class="col-md-6 col-6">
+                                <label asp-for="SchoolName" class="form-label">
+                                    <i class="las la-building"></i>
+                                </label>
+                                <input class="form-control" asp-for="SchoolName" placeholder="School Name">
+                            </div>
+                            <div class="col-md-6 col-6">
+                                <label asp-for="GradeName" class="form-label">
+                                    <i class="las la-book"></i>
+                                </label>
+                                <input class="form-control" asp-for="GradeName" placeholder="Grade Name">
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <div class="col-md-6 col-6">
+                                <label asp-for="EmailAddress" class="form-label">
+                                    <i class="las la-envelope"></i>
+                                </label>
+                                <input class="form-control" asp-for="EmailAddress" placeholder="Email Address">
+                            </div>
+                            <div class="col-md-6 col-6">
+                                <label asp-for="PhoneNumber" class="form-label">
+                                    <i class="las la-phone"></i>
+                                </label>
+                                <input class="form-control" asp-for="PhoneNumber" placeholder="Phone Number">
+                            </div>
+                        </div>
+                        <div class="row form-group pt-3">
+                            <div class="col-md-12 col-12">
+                                <label asp-for="UserName" class="form-label">
+                                    <i class="las la-key"></i>
+                                </label>
+                                <input class="form-control" asp-for="UserName" placeholder="User Name">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn">Update Now</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

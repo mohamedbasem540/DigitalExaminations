@@ -1,0 +1,44 @@
+﻿@model StudentPortal.Models.PortalEnum.SuccessEnum
+@{
+    ViewData["Title"] = "Success";
+}
+
+<div class="form-block">
+    <div class="container">
+        <div class="row justify-content-center bg-light border border-4 p-5">
+            <div class="col-lg-8 col-md-8 ">
+                <div class="ugf-form-card ugf-form-complete text-center">
+                    <div class="icon">
+                        <img src="~/assets/images/card/2.png" alt="">
+                    </div>
+                    @if (Model == PortalEnum.SuccessEnum.ChangePassword)
+                    {
+                        <h2>Success</h2>
+                        <h6>Hey @ViewData["FullName"] ! Change password successfully</h6>
+                    }
+                    else if (Model == PortalEnum.SuccessEnum.Login)
+                    {
+                        <h2>Welcome again</h2>
+                        <h6>Hey @ViewData["FullName"] ! Welcome to Digital Examinations</h6>
+                    }
+                    else if (Model == PortalEnum.SuccessEnum.Signup)
+                    {
+                        <h2>Complete Registration</h2>
+                        <h6>Hey @ViewData["FullName"] ! Welcome to Digital Examinations</h6>
+                    }
+                    else if (Model == PortalEnum.SuccessEnum.EditProfile)
+                    {
+                        <h2>Success</h2>
+                        <h6>Hey @ViewData["FullName"] ! Profile updated successfully</h6>
+                    }
+                    else
+                    {
+                        <h2>Success</h2>
+                        <h6>Hey @ViewData["FullName"] !</h6>
+                    }
+                    <div class="mt-3"><a asp-controller="Exam" asp-action="Index" class="text-decoration-underline">View Exams</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

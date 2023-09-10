@@ -1,0 +1,49 @@
+﻿@model Entities.AuthenticationModels.UserForAuthenticationDto
+@{
+    ViewData["Title"] = "Login";
+}
+<div class="form-block">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-8 p-sm-0">
+                <div class="ugf-form-block-header">
+                    <h1>Login Now</h1>
+                </div>
+                <div class="ugf-input-block">
+                    <form asp-action="Login">
+                        <div asp-validation-summary="All" class="text-danger">@ViewData["error"]</div>
+
+                        <div class="row form-group pt-3">
+                            <div class="col-md-12 col-12">
+                                <label asp-for="UserName" class="form-label">
+                                    <i class="las la-key"></i>
+                                </label>
+                                <input class="form-control" asp-for="UserName" placeholder="User Name">
+                                <span asp-validation-for="UserName" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-12 col-12 pass-block">
+                                <label asp-for="Password" class="form-label">
+                                    <i class="las la-unlock"></i>
+                                </label>
+                                <div class="pass-toggler-btn">
+                                    <i id="eye" class="lar la-eye"></i>
+                                    <i id="eye-slash" class="lar la-eye-slash"></i>
+                                </div>
+                                <input class="form-control" asp-for="Password" placeholder="Password">
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="alternet-access">
+    <p>Don't have an account ? <a asp-controller="Authorization" asp-action="SignUp">Sign up now !</a></p>
+</div>
